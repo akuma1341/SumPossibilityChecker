@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Sum possibility checker</title>
+</head>
+<body>
+
+<form th:method="GET" th:action="@{/index/generateNumbers(capacity=${capacity})}">
+    <label for="capacity">Enter capacity</label>
+    <input type="text" name="capacity" id="capacity" th:value="${capacity}">
+
+    <input type="submit" value="Generate"/>
+</form>
+
+<a href="/index/clearNumbers">Clear numbers</a>
+
+<br>
+
+<br>
+<hr>
+<br>
+
+<form th:method="GET" th:action="@{/index/setTargetSum(sum=${sum})}">
+    <label for="sum">Enter target sum</label>
+    <input type="text" name="sum" id="sum" th:value="${sum}">
+
+    <input type="submit" value="Set"/>
+</form>
+
+<br><br>
+
+<form th:method="GET" th:action="@{/index/binary}">
+    <label for="binary">Check with binary search</label>
+    <input type="submit" id="binary" value="Check"/>
+</form>
+
+<form th:method="GET" th:action="@{/index/cycles}">
+    <label for="cycles">Check with cycles</label>
+    <input type="submit" id="cycles" value="Check"/>
+</form>
+
+<form th:method="GET" th:action="@{/index/contains}">
+    <label for="contains">Check with contains</label>
+    <input type="submit" id="contains" value="Check"/>
+</form>
+
+<form th:method="GET" th:action="@{/index/all}">
+    <label for="all">Check with all</label>
+    <input type="submit" id="all" value="Check"/>
+</form>
+
+<p>
+    Result is <span th:text="${result}"></span>
+</p>
+
+<hr>
+
+<table border="1" style="width:300px">
+    <tr>
+        <td th:each="number : ${numbers}" th:text="*{number}"></td>
+    </tr>
+</table>
+</body>
+</html>
