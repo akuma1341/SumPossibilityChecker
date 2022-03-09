@@ -12,7 +12,7 @@ public class SumPossibilityCheckerWithBinarySearch implements SumPossibilityChec
         long before = System.currentTimeMillis();
         List<Integer> sortedNumbers = numbers.stream().sorted().collect(Collectors.toList());
         long after = System.currentTimeMillis();
-        System.out.println("List copied in " + (after - before));
+        System.out.println("List copied: " + (after - before));
         for (int i = 0; i < sortedNumbers.size(); i++) {
             Integer currentNumber = sortedNumbers.get(i);
             Integer numberToFind = targetSum - currentNumber;

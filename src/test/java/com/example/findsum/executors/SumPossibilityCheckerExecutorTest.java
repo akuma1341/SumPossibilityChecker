@@ -2,6 +2,8 @@ package com.example.findsum.executors;
 
 import com.example.findsum.generators.ListOfNumbersGenerator;
 import com.example.findsum.logic.SumPossibilityChecker;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +35,7 @@ class SumPossibilityCheckerExecutorTest {
         long timeBeforeStart = System.currentTimeMillis();
         System.out.println(executor.executeCheckerWithCycles(targetSum, numbers));
         long timeAfterStart = System.currentTimeMillis();
-        System.out.println("Time spent = " + (timeAfterStart - timeBeforeStart));
+        System.out.println("Time spent: " + (timeAfterStart - timeBeforeStart));
     }
 
     @Test
@@ -42,7 +44,7 @@ class SumPossibilityCheckerExecutorTest {
         long timeBeforeStart = System.currentTimeMillis();
         System.out.println(executor.executeCheckerWithBinarySearch(targetSum, numbers));
         long timeAfterStart = System.currentTimeMillis();
-        System.out.println("Time spent = " + (timeAfterStart - timeBeforeStart));
+        System.out.println("Time spent: " + (timeAfterStart - timeBeforeStart));
     }
 
     @Test
@@ -51,7 +53,7 @@ class SumPossibilityCheckerExecutorTest {
         long timeBeforeStart = System.currentTimeMillis();
         System.out.println(executor.executeCheckerWithContains(targetSum, numbers));
         long timeAfterStart = System.currentTimeMillis();
-        System.out.println("Time spent = " + (timeAfterStart - timeBeforeStart));
+        System.out.println("Time spent: " + (timeAfterStart - timeBeforeStart));
     }
 
     @Test
@@ -60,6 +62,43 @@ class SumPossibilityCheckerExecutorTest {
         long timeBeforeStart = System.currentTimeMillis();
         System.out.println(executor.executeAllCheckers(targetSum, numbers));
         long timeAfterStart = System.currentTimeMillis();
-        System.out.println("Time spent = " + (timeAfterStart - timeBeforeStart));
+        System.out.println("Time spent: " + (timeAfterStart - timeBeforeStart));
+    }
+
+    @Test
+    public void resultOfCheckerWithCyclesIsFalse() {
+        Assertions.assertFalse(executor.executeCheckerWithCycles(targetSum, numbers));
+    }
+
+    @Test
+    public void resultOfCheckerWithBinarySearchIsFalse() {
+        Assertions.assertFalse(executor.executeCheckerWithBinarySearch(targetSum, numbers));
+    }
+
+    @Test
+    public void resultOfCheckerWithContainsIsFalse() {
+        Assertions.assertFalse(executor.executeCheckerWithContains(targetSum, numbers));
+    }
+
+    @Test
+    public void resultOfAllCheckerIsFalse() {
+        Assertions.assertFalse(executor.executeAllCheckers(targetSum, numbers));
+    }
+
+    @Test
+    public void numbersListIsEmpty() {
+        Assertions.assertTrue(numbers.isEmpty());
+    }
+
+    @Test
+    public void numbersListIsNull() {
+        Assertions.assertNull(numbers);
+    }
+
+    @Test
+    public void numbersAreNotNull() {
+        for (Integer number : numbers) {
+            Assertions.assertNotNull(number);
+        }
     }
 }
