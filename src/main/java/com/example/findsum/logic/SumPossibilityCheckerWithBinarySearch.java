@@ -9,7 +9,10 @@ import java.util.stream.Collectors;
 public class SumPossibilityCheckerWithBinarySearch implements SumPossibilityChecker {
     @Override
     public boolean checkSum(Integer targetSum, List<Integer> numbers) {
+        long before = System.currentTimeMillis();
         List<Integer> sortedNumbers = numbers.stream().sorted().collect(Collectors.toList());
+        long after = System.currentTimeMillis();
+        System.out.println("List copied in " + (after - before));
         for (int i = 0; i < sortedNumbers.size(); i++) {
             Integer currentNumber = sortedNumbers.get(i);
             Integer numberToFind = targetSum - currentNumber;

@@ -22,26 +22,23 @@ public class SumPossibilityCheckerExecutorImpl implements SumPossibilityCheckerE
 
     @Override
     public boolean executeCheckerWithCycles(Integer targetSum, List<Integer> numbers) {
-        return binarySearch.checkSum(targetSum, numbers);
-    }
-
-    @Override
-    public boolean executeCheckerWithBinarySearch(Integer targetSum, List<Integer> numbers) {
-        return contains.checkSum(targetSum, numbers);
-    }
-
-    @Override
-    public boolean executeCheckerWithContains(Integer targetSum, List<Integer> numbers) {
         return cycles.checkSum(targetSum, numbers);
     }
 
     @Override
-    public boolean executeAllCheckers(Integer targetSum, List<Integer> numbers) {
-        if (binarySearch.checkSum(targetSum, numbers) &&
-                contains.checkSum(targetSum, numbers) &&
-                cycles.checkSum(targetSum, numbers))
-            return true;
+    public boolean executeCheckerWithBinarySearch(Integer targetSum, List<Integer> numbers) {
+        return binarySearch.checkSum(targetSum, numbers);
+    }
 
-        return false;
+    @Override
+    public boolean executeCheckerWithContains(Integer targetSum, List<Integer> numbers) {
+        return  contains.checkSum(targetSum, numbers);
+    }
+
+    @Override
+    public boolean executeAllCheckers(Integer targetSum, List<Integer> numbers) {
+        return binarySearch.checkSum(targetSum, numbers) &&
+                contains.checkSum(targetSum, numbers) &&
+                cycles.checkSum(targetSum, numbers);
     }
 }
