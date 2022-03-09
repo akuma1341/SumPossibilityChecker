@@ -51,7 +51,7 @@ class SumPossibilityCheckerExecutorTest {
         long timeBeforeStart = System.currentTimeMillis();
         System.out.println(executor.executeCheckerWithContains(targetSum, numbers));
         long timeAfterStart = System.currentTimeMillis();
-        System.out.println("Time spent = " + (timeAfterStart - timeBeforeStart)); //Самый быстрый поиск из трех? Хмм..
+        System.out.println("Time spent = " + (timeAfterStart - timeBeforeStart));
     }
 
     @Test
