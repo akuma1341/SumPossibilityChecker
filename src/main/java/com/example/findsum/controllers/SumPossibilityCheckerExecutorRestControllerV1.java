@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class SumPossibilityCheckerExecutorRestControllerV1 {
     private final SumPossibilityCheckerExecutor executor;
-    private final ResultOfCheckWrapper result;
+    private final ResultOfCheckDTO result;
 
     @GetMapping(value = "/binary", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TestExecutorDataDTO.Response.ResultOfCheck> executeWithBinarySearch(@RequestParam("sum") int sum,
@@ -26,7 +26,7 @@ public class SumPossibilityCheckerExecutorRestControllerV1 {
     }
 
     @GetMapping(value = "cycles", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResultOfCheckWrapper> executeWithCycles(@RequestParam("sum") int sum, @RequestBody ListOfNumbersWrapper numbers) {
+    public ResponseEntity<ResultOfCheckDTO> executeWithCycles(@RequestParam("sum") int sum, @RequestBody ListOfNumbersDTO numbers) {
         if (numbers == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -35,7 +35,7 @@ public class SumPossibilityCheckerExecutorRestControllerV1 {
     }
 
     @GetMapping(value = "contains", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResultOfCheckWrapper> executeWithContains(@RequestParam("sum") int sum, @RequestBody ListOfNumbersWrapper numbers) {
+    public ResponseEntity<ResultOfCheckDTO> executeWithContains(@RequestParam("sum") int sum, @RequestBody ListOfNumbersDTO numbers) {
         if (numbers == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -44,7 +44,7 @@ public class SumPossibilityCheckerExecutorRestControllerV1 {
     }
 
     @GetMapping(value = "all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResultOfCheckWrapper> executeAll(@RequestParam("sum") int sum, @RequestBody ListOfNumbersWrapper numbers) {
+    public ResponseEntity<ResultOfCheckDTO> executeAll(@RequestParam("sum") int sum, @RequestBody ListOfNumbersDTO numbers) {
         if (numbers == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

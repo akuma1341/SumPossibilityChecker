@@ -8,10 +8,10 @@ import java.util.List;
 
 @Getter
 @Setter
-public class ListOfNumbersWrapper {
+public class ListOfNumbersDTO {
     private List<Integer> numbers;
 
-    public ListOfNumbersWrapper() {
+    public ListOfNumbersDTO() {
         numbers = new ArrayList<>();
     }
 }

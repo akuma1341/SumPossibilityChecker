@@ -9,6 +9,6 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ResultOfCheckWrapper {
+public class ResultOfCheckDTO {
     private boolean result;
 }

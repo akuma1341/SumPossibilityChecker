@@ -27,7 +27,7 @@ public class SumPossibilityCheckerExecutorRestControllerTest {
     private MockMvc mockMvc;
 
     private List<Integer> numbers;
-    private ListOfNumbersWrapper wrapper = new ListOfNumbersWrapper();
+    private ListOfNumbersDTO wrapper = new ListOfNumbersDTO();
     private Integer targetSum;
 
     @BeforeEach
