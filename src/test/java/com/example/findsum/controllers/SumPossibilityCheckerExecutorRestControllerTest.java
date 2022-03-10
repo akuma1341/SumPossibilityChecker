@@ -41,9 +41,42 @@ public class SumPossibilityCheckerExecutorRestControllerTest {
     }
 
     @Test
-    public void test() throws Exception {
+    public void controllerExecutingBinarySearchCheckReturnStatus200AndTrueResult() throws Exception {
         mockMvc.perform(
                 get("/api/v1/executor/binary?sum={sum}", targetSum)
+                        .content(mapper.writeValueAsString(wrapper))
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.result").value(true));
+
+    }
+
+    @Test
+    public void controllerExecutingCyclesCheckReturnStatus200AndTrueResult() throws Exception {
+        mockMvc.perform(
+                get("/api/v1/executor/cycles?sum={sum}", targetSum)
+                        .content(mapper.writeValueAsString(wrapper))
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.result").value(true));
+
+    }
+
+    @Test
+    public void controllerExecutingContainsCheckReturnStatus200AndTrueResult() throws Exception {
+        mockMvc.perform(
+                get("/api/v1/executor/contains?sum={sum}", targetSum)
+                        .content(mapper.writeValueAsString(wrapper))
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.result").value(true));
+
+    }
+
+    @Test
+    public void controllerExecutingAllCheckReturnStatus200AndTrueResult() throws Exception {
+        mockMvc.perform(
+                get("/api/v1/executor/all?sum={sum}", targetSum)
                         .content(mapper.writeValueAsString(wrapper))
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
