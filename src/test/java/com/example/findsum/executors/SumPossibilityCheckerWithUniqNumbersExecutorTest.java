@@ -23,7 +23,7 @@ public class SumPossibilityCheckerWithUniqNumbersExecutorTest {
     @BeforeEach
     void init() {
         numbers = generator.generateSetOfNumbers(100_000);
-        targetSum = 123456;
+        targetSum = 123456789;
     }
 
     @Test

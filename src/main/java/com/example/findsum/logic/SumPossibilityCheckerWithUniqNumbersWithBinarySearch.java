@@ -5,9 +5,10 @@ import java.util.Set;
 public class SumPossibilityCheckerWithUniqNumbersWithBinarySearch implements SumPossibilityCheckerWithUniqNumbers {
     @Override
     public boolean checkSum(Integer targetSum, Set<Integer> numbers) {
+        Integer[] numbersForSearch = numbers.toArray(new Integer[0]);
         for (Integer number : numbers) {
             Integer numberToFind = targetSum - number;
-            if (binarySearch(numbers.toArray(new Integer[0]), numberToFind, number) >= 0) {
+            if (binarySearch(numbersForSearch, numberToFind, number) >= 0) {
                 return true;
             }
         }
