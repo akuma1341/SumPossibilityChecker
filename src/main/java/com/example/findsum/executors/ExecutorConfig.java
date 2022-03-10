@@ -1,9 +1,6 @@
 package com.example.findsum.executors;
 
-import com.example.findsum.logic.SumPossibilityChecker;
-import com.example.findsum.logic.SumPossibilityCheckerWithBinarySearch;
-import com.example.findsum.logic.SumPossibilityCheckerWithContains;
-import com.example.findsum.logic.SumPossibilityCheckerWithCycles;
+import com.example.findsum.logic.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,6 +16,15 @@ public class ExecutorConfig {
         result.put("binary", new SumPossibilityCheckerWithBinarySearch());
         result.put("cycles", new SumPossibilityCheckerWithCycles());
         result.put("contains", new SumPossibilityCheckerWithContains());
+        return result;
+    }
+
+    @Bean
+    public Map<String, SumPossibilityCheckerWithUniqNumbers> checkersWithUniqNumbers() {
+        Map<String, SumPossibilityCheckerWithUniqNumbers> result = new HashMap<>();
+        result.put("binary", new SumPossibilityCheckerWithUniqNumbersWithBinarySearch());
+        result.put("cycles", new SumPossibilityCheckerWithUniqNumbersWithCycles());
+        result.put("contains", new SumPossibilityCheckerWithUniqNumbersWithContains());
         return result;
     }
 }

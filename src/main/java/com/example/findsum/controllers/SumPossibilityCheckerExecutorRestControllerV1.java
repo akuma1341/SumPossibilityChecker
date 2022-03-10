@@ -15,11 +15,13 @@ public class SumPossibilityCheckerExecutorRestControllerV1 {
     private final ResultOfCheckWrapper result;
 
     @GetMapping(value = "/binary", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResultOfCheckWrapper> executeWithBinarySearch(@RequestParam("sum") int sum, @RequestBody ListOfNumbersWrapper numbers) {
+    public ResponseEntity<TestExecutorDataDTO.Response.ResultOfCheck> executeWithBinarySearch(@RequestParam("sum") int sum,
+                                                                                              @RequestBody TestExecutorDataDTO.Request.Check numbers) {
         if (numbers == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        result.setResult(executor.executeCheckerWithBinarySearch(sum, numbers.getNumbers()));
+        var result = new TestExecutorDataDTO.Response.ResultOfCheck(executor.executeCheckerWithBinarySearch(sum, numbers.getNumbers()));
+//        result.setResult(executor.executeCheckerWithBinarySearch(sum, numbers.getNumbers()));
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
