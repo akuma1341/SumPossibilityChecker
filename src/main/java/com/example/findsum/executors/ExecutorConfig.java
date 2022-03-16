@@ -16,15 +16,7 @@ public class ExecutorConfig {
         result.put("binary", new SumPossibilityCheckerWithBinarySearch());
         result.put("cycles", new SumPossibilityCheckerWithCycles());
         result.put("contains", new SumPossibilityCheckerWithContains());
-        return result;
-    }
-
-    @Bean
-    public Map<String, SumPossibilityCheckerWithUniqNumbers> checkersWithUniqNumbers() {
-        Map<String, SumPossibilityCheckerWithUniqNumbers> result = new HashMap<>();
-        result.put("binary", new SumPossibilityCheckerWithUniqNumbersWithBinarySearch());
-        result.put("cycles", new SumPossibilityCheckerWithUniqNumbersWithCycles());
-        result.put("contains", new SumPossibilityCheckerWithUniqNumbersWithContains());
+        result.put("set", new SumPossibilityCheckerWithSet());
         return result;
     }
 }

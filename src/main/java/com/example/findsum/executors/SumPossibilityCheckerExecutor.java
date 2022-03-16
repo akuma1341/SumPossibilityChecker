@@ -9,5 +9,7 @@ public interface SumPossibilityCheckerExecutor {
 
     boolean executeCheckerWithContains(Integer targetSum, List<Integer> numbers);
 
+    boolean executeCheckerWithSet(Integer targetSum, List<Integer> numbers);
+
     boolean executeAllCheckers(Integer targetSum, List<Integer> numbers);
 }

@@ -43,6 +43,15 @@ public class SumPossibilityCheckerExecutorRestControllerV1 {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    @GetMapping(value = "set", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ResultOfCheckDTO> executeWithSet(@RequestParam("sum") int sum, @RequestBody ListOfNumbersDTO numbers) {
+        if (numbers == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        result.setResult(executor.executeCheckerWithSet(sum, numbers.getNumbers()));
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
     @GetMapping(value = "all", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResultOfCheckDTO> executeAll(@RequestParam("sum") int sum, @RequestBody ListOfNumbersDTO numbers) {
         if (numbers == null) {

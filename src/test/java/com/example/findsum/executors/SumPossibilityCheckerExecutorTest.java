@@ -57,6 +57,15 @@ class SumPossibilityCheckerExecutorTest {
     }
 
     @Test
+    public void executeCheckerWithSet() {
+        System.out.println("This is set");
+        long timeBeforeStart = System.currentTimeMillis();
+        System.out.println(executor.executeCheckerWithSet(targetSum, numbers));
+        long timeAfterStart = System.currentTimeMillis();
+        System.out.println("Time spent: " + (timeAfterStart - timeBeforeStart));
+    }
+
+    @Test
     public void executeAllCheckers() {
         System.out.println("This is all");
         long timeBeforeStart = System.currentTimeMillis();

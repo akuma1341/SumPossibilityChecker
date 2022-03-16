@@ -31,9 +31,15 @@ public class SumPossibilityCheckerExecutorImpl implements SumPossibilityCheckerE
     }
 
     @Override
+    public boolean executeCheckerWithSet(Integer targetSum, List<Integer> numbers) {
+        return checkers.get("set").checkSum(targetSum, numbers);
+    }
+
+    @Override
     public boolean executeAllCheckers(Integer targetSum, List<Integer> numbers) {
         return checkers.get("cycles").checkSum(targetSum, numbers) &&
                 checkers.get("binary").checkSum(targetSum, numbers) &&
-                checkers.get("contains").checkSum(targetSum, numbers);
+                checkers.get("contains").checkSum(targetSum, numbers) &&
+                checkers.get("set").checkSum(targetSum, numbers);
     }
 }
