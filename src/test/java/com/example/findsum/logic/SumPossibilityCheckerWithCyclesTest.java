@@ -1,11 +1,10 @@
 package com.example.findsum.logic;
 
+import com.example.findsum.logic.impl.SumPossibilityCheckerWithCycles;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SumPossibilityCheckerWithCyclesTest {
     private final SumPossibilityChecker checker = new SumPossibilityCheckerWithCycles();

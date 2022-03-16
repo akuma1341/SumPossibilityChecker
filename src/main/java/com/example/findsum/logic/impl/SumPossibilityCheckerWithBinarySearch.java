@@ -1,5 +1,6 @@
-package com.example.findsum.logic;
+package com.example.findsum.logic.impl;
 
+import com.example.findsum.logic.SumPossibilityChecker;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class SumPossibilityCheckerWithBinarySearch implements SumPossibilityChecker {
+
     @Override
     public boolean checkSum(Integer targetSum, List<Integer> numbers) {
         long before = System.currentTimeMillis();

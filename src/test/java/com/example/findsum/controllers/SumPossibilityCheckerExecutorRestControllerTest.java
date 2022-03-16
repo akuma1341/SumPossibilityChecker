@@ -1,5 +1,6 @@
 package com.example.findsum.controllers;
 
+import com.example.findsum.controllers.dto.ListOfNumbersDTO;
 import com.example.findsum.generators.ListOfNumbersGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;

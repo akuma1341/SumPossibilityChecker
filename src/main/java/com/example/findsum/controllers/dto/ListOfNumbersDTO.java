@@ -1,4 +1,4 @@
-package com.example.findsum.controllers;
+package com.example.findsum.controllers.dto;
 
 import lombok.Getter;
 import lombok.Setter;

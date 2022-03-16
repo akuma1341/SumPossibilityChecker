@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class ListOfRandomNumbersGenerator implements ListOfNumbersGenerator{
+public class ListOfRandomNumbersGenerator implements ListOfNumbersGenerator {
+
     @Override
     public List<Integer> generateListOfNumbers(int capacity) {
         int[] arrayOfNumbers = new int[capacity];

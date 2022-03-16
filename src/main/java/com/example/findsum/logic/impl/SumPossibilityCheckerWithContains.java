@@ -1,21 +1,23 @@
-package com.example.findsum.logic;
+package com.example.findsum.logic.impl;
 
+import com.example.findsum.logic.SumPossibilityChecker;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class SumPossibilityCheckerWithContains implements SumPossibilityChecker{
+public class SumPossibilityCheckerWithContains implements SumPossibilityChecker {
     @Override
     public boolean checkSum(Integer targetSum, List<Integer> numbers) {
+        boolean result = false;
         for (int i = 0; i < numbers.size(); i++) {
             Integer currentNumber = numbers.get(i);
             Integer numberToFind = targetSum - currentNumber;
-            if (numbers.indexOf(numberToFind) != i) {
-                if (numbers.contains(numberToFind))
-                    return true;
+            if (numbers.contains(numberToFind)) {
+                result = true;
+                break;
             }
         }
-        return false;
+        return result;
     }
 }

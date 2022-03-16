@@ -1,14 +1,13 @@
 package com.example.findsum.executors;
 
 import com.example.findsum.generators.ListOfNumbersGenerator;
-import com.example.findsum.logic.SumPossibilityChecker;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
@@ -76,38 +75,38 @@ class SumPossibilityCheckerExecutorTest {
 
     @Test
     public void resultOfCheckerWithCyclesIsFalse() {
-        Assertions.assertFalse(executor.executeCheckerWithCycles(targetSum, numbers));
+        assertFalse(executor.executeCheckerWithCycles(targetSum, numbers));
     }
 
     @Test
     public void resultOfCheckerWithBinarySearchIsFalse() {
-        Assertions.assertFalse(executor.executeCheckerWithBinarySearch(targetSum, numbers));
+        assertFalse(executor.executeCheckerWithBinarySearch(targetSum, numbers));
     }
 
     @Test
     public void resultOfCheckerWithContainsIsFalse() {
-        Assertions.assertFalse(executor.executeCheckerWithContains(targetSum, numbers));
+        assertFalse(executor.executeCheckerWithContains(targetSum, numbers));
     }
 
     @Test
     public void resultOfAllCheckerIsFalse() {
-        Assertions.assertFalse(executor.executeAllCheckers(targetSum, numbers));
+        assertFalse(executor.executeAllCheckers(targetSum, numbers));
     }
 
     @Test
     public void numbersListIsEmpty() {
-        Assertions.assertTrue(numbers.isEmpty());
+        assertTrue(numbers.isEmpty());
     }
 
     @Test
     public void numbersListIsNull() {
-        Assertions.assertNull(numbers);
+        assertNull(numbers);
     }
 
     @Test
     public void numbersAreNotNull() {
         for (Integer number : numbers) {
-            Assertions.assertNotNull(number);
+            assertNotNull(number);
         }
     }
 }

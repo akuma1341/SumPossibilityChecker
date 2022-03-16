@@ -2,6 +2,7 @@ package com.example.findsum.logic;
 
 import com.example.findsum.generators.ListOfNumbersGenerator;
 import com.example.findsum.generators.ListOfRandomNumbersGenerator;
+import com.example.findsum.logic.impl.SumPossibilityCheckerWithBinarySearch;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
