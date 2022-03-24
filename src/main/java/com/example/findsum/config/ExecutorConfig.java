@@ -1,6 +1,6 @@
 package com.example.findsum.config;
 
-import com.example.findsum.logic.*;
+import com.example.findsum.logic.SumPossibilityChecker;
 import com.example.findsum.logic.impl.SumPossibilityCheckerWithBinarySearch;
 import com.example.findsum.logic.impl.SumPossibilityCheckerWithContains;
 import com.example.findsum.logic.impl.SumPossibilityCheckerWithCycles;
@@ -15,7 +15,6 @@ import java.util.Map;
 @Configuration
 @RequiredArgsConstructor
 public class ExecutorConfig {
-
     private final SumPossibilityCheckerWithBinarySearch binarySearch;
     private final SumPossibilityCheckerWithCycles cycles;
     private final SumPossibilityCheckerWithContains contains;

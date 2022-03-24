@@ -12,7 +12,6 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 public class SumPossibilityCheckerExecutorImpl implements SumPossibilityCheckerExecutor {
-
     private final Map<CheckerName, SumPossibilityChecker> checkers;
 
     @Override
@@ -37,9 +36,6 @@ public class SumPossibilityCheckerExecutorImpl implements SumPossibilityCheckerE
 
     @Override
     public boolean executeAllCheckers(Integer targetSum, List<Integer> numbers) {
-        return checkers.get(CheckerName.CYCLES).checkSum(targetSum, numbers) &&
-                checkers.get(CheckerName.BINARY).checkSum(targetSum, numbers) &&
-                checkers.get(CheckerName.CONTAINS).checkSum(targetSum, numbers) &&
-                checkers.get(CheckerName.SET).checkSum(targetSum, numbers);
+        return checkers.values().stream().allMatch(checker -> checker.checkSum(targetSum, numbers));
     }
 }

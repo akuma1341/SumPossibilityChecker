@@ -11,37 +11,33 @@ public class SumPossibilityCheckerWithBinarySearch implements SumPossibilityChec
 
     @Override
     public boolean checkSum(Integer targetSum, List<Integer> numbers) {
-        long before = System.currentTimeMillis();
+        boolean result = false;
         List<Integer> sortedNumbers = numbers.stream().sorted().collect(Collectors.toList());
-        long after = System.currentTimeMillis();
-        System.out.println("List copied: " + (after - before));
-        for (int i = 0; i < sortedNumbers.size(); i++) {
-            Integer currentNumber = sortedNumbers.get(i);
+        for (Integer currentNumber : numbers) {
             Integer numberToFind = targetSum - currentNumber;
-            if (binarySearch(sortedNumbers, numberToFind, i) >= 0) {
-                return true;
+            if (binarySearch(sortedNumbers, numberToFind) >= 0) {
+                result = true;
+                break;
             }
         }
-        return false;
+        return result;
     }
 
-    private int binarySearch(List<Integer> numbers, Integer key, int exceptIndex) {
+    private int binarySearch(List<Integer> numbers, Integer key) {
         int low = 0;
         int high = numbers.size() - 1;
 
         while (low <= high) {
             int mid = (low + high) >>> 1;
 
-            if (mid != exceptIndex) {
-                int midVal = numbers.get(mid);
+            int midVal = numbers.get(mid);
 
-                if (midVal < key)
-                    low = mid + 1;
-                else if (midVal > key)
-                    high = mid - 1;
-                else
-                    return mid; // key found
-            } else low = mid + 1;
+            if (midVal < key)
+                low = mid + 1;
+            else if (midVal > key)
+                high = mid - 1;
+            else
+                return mid; // key found
         }
         return -(low + 1);  // key not found.
     }

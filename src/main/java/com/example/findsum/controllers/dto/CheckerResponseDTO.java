@@ -7,6 +7,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ResultOfCheckDTO {
-    private boolean result;
+public class CheckerResponseDTO {
+    private boolean matchFound;
 }

@@ -10,8 +10,7 @@ public class SumPossibilityCheckerWithContains implements SumPossibilityChecker 
     @Override
     public boolean checkSum(Integer targetSum, List<Integer> numbers) {
         boolean result = false;
-        for (int i = 0; i < numbers.size(); i++) {
-            Integer currentNumber = numbers.get(i);
+        for (Integer currentNumber : numbers) {
             Integer numberToFind = targetSum - currentNumber;
             if (numbers.contains(numberToFind)) {
                 result = true;
